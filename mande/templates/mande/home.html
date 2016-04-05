@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Logos Service Portal</title>
+    <link rel="shortcut icon" href="/static/home/favicon.ico" type="img/x-icon">
+
+    <link href="/static/home/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/static/home/css/metastyle.css" rel="stylesheet" type="text/css">
+    <link href="/static/home/css/animate.css" rel="stylesheet" type="text/css">
+
+    <link href="/static/home/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                  <i class="fa fa-bars"></i>
+              </button>
+              <a class="navbar-brand page-scroll" href="#page-top">
+                  <i class="fa fa-play-circle"></i>  <span class="light">Create an</span> Account
+              </a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+              <ul class="nav navbar-nav">
+                  <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                  <li class="hidden">
+                      <a href="#page-top"></a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#download">Jobs</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#contact">Contact</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+  <div style="overflow:hidden;">
+  <header class="header" id="header"><!--header-start-->
+  	<div class="container">
+      	<figure class="logo animated fadeInDown delay-07s">
+          	<a href="#"><img src="/static/home/img/logo.png" alt=""></a>
+          </figure>
+          <h1 class="animated fadeInDown delay-07s">Service Hour Portal</h1>
+          <ul class="we-create animated fadeInUp delay-1s">
+          	<li>A free, responsive, service hour tracker.</li>
+          </ul>
+              <a href="#jobs" class="btn btn-circle page-scroll animated fadeInUp delay-1s">
+                  <i class="fa fa-angle-double-down animated"></i>
+              </a>
+      </div>
+  </div>
+  </header>
+
+  <section id="jobs" class="content-section text-center">
+    <br><br><br><br><br><br><br>
+    <h1>Available Jobs</h1>
+    <div class="container">
+      {% if jlist %}
+
+       <div class="row">
+          {% for x in jlist %}
+           <div class="col-lg-4 col-sm-6 text-center marginB">
+              <div class="hovereffect">
+                 <img class="img-responsive" src="http://placehold.it/350x200" alt="">
+                 <div class="overlay">
+                    <h2>{{x.job_title}}</h2>
+                    <p class="icon-links">
+                       <a href="#"><span class="glyphicon glyphicon-bookmark "></span></a>
+                       <a data-toggle="modal" href="#{{x.job_title|cut:" " }}" class="button"><span class="glyphicon glyphicon-info-sign"></span> </a>
+                    </p>
+                 </div>
+              </div>
+           </div>
+           {% endfor %}
+       </div>
+       {% endif %}
+     </div>
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </section>
+
+
+  <!-- Modal -->
+    {% for x in jlist %}
+      <div class="modal fade" id="{{x.job_title|cut:" " }}" role="dialog">
+        <div class="modal-dialog">
+           <!-- Modal content-->
+           <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" onclick="javascript:window.location.reload()" class="close" data-dismiss="modal">&times;</button>
+                 <h4>{{x.job_title}}<span class="glyphicon glyphicon-briefcase"></span></h4>
+              </div>
+              <div class="modal-body modalText">
+                 <ul style="list-style-type:none">
+                    <li>
+                       <h5> Opportunity Details <span class="glyphicon glyphicon-book"></span></h5>
+                       <ul style = "list-style-type:none">
+                          <li>{{x.job_text}}
+                          </li>
+                       </ul>
+                    </li>
+                    <li>
+                       <h5> Opportunity Requirements <span class="glyphicon glyphicon-exclamation-sign"></span></h5>
+                       <ul style = "list-style-type:none">
+                          <li>Job req
+                          </li>
+                       </ul>
+                    </li>
+                    <li>
+                       <h5> Hours Earned  <span class="glyphicon glyphicon-time"></span></h5>
+                       <ul style = "list-style-type:none">
+                          <li> {{x.job_hours}}</li>
+                       </ul>
+                    </li>
+                 </ul>
+              </div>
+            </div>
+           </div>
+         </div>
+      {% endfor %}
+       <script src="/static/home/js/jquery.js"></script>
+       <script src="/static/home/js/bootstrap.min.js"></script>
+       <script src="/static/home/js/jquery.easing.min.js"></script>
+       <script src="/static/home/js/grayscale.js"></script>
+   </body>
+</html>
