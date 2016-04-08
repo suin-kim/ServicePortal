@@ -9,7 +9,7 @@ body {
     height: 100%;
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
-    background-color: #000;
+    background:url(../img/pw_maze_black_2X.png) left top repeat;
 }
 
 html {
@@ -138,7 +138,6 @@ a:focus {
         background: #000;
     }
 }
-
 /* Header Styles
 ---------------------------------*/
 
@@ -380,7 +379,7 @@ a:focus {
 }
 
 .modal-header, h4, .close {
-      background-color: #5cb85c;
+      background-color: #000;
       color:white !important;
       text-align: center;
       font-size: 30px;

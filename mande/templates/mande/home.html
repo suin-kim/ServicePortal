@@ -21,7 +21,6 @@
 
 <body>
 
-  <!-- Navigation -->
   <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
       <div class="container">
           <div class="navbar-header">
@@ -41,7 +40,7 @@
                       <a href="#page-top"></a>
                   </li>
                   <li>
-                      <a class="page-scroll" href="#download">Jobs</a>
+                      <a class="page-scroll" href="#download">Opportunities</a>
                   </li>
                   <li>
                       <a class="page-scroll" href="#contact">Contact</a>
@@ -54,88 +53,102 @@
   </nav>
 
   <div style="overflow:hidden;">
-  <header class="header" id="header"><!--header-start-->
-  	<div class="container">
+    <header class="header" id="header">
+    	<div class="container">
       	<figure class="logo animated fadeInDown delay-07s">
-          	<a href="#"><img src="/static/home/img/logo.png" alt=""></a>
-          </figure>
-          <h1 class="animated fadeInDown delay-07s">Service Hour Portal</h1>
-          <ul class="we-create animated fadeInUp delay-1s">
-          	<li>A free, responsive, service hour tracker.</li>
-          </ul>
-              <a href="#jobs" class="btn btn-circle page-scroll animated fadeInUp delay-1s">
-                  <i class="fa fa-angle-double-down animated"></i>
-              </a>
+        	<a href="#"><img src="/static/home/img/portal.png" alt=""></a>
+        </figure>
+        <h1 class="animated fadeInDown delay-07s">Service Hour Portal</h1>
+        <ul class="we-create animated fadeInUp delay-1s">
+        	<li>A free, responsive, service hour tracker.</li>
+        </ul>
+        <a href="#opportunities" class="btn btn-circle page-scroll animated fadeInUp delay-1s">
+          <i class="fa fa-angle-double-down animated"></i>
+        </a>
       </div>
+    </header>
   </div>
-  </header>
 
-  <section id="jobs" class="content-section text-center">
+  <section id="opportunities" class="content-section text-center">
     <br><br><br><br><br><br><br>
-    <h1>Available Jobs</h1>
+    <h1>Available Opportunities</h1>
     <div class="container">
-      {% if jlist %}
-
+      {% if opplist %}
        <div class="row">
-          {% for x in jlist %}
-           <div class="col-lg-4 col-sm-6 text-center marginB">
-              <div class="hovereffect">
-                 <img class="img-responsive" src="http://placehold.it/350x200" alt="">
-                 <div class="overlay">
-                    <h2>{{x.job_title}}</h2>
-                    <p class="icon-links">
-                       <a href="#"><span class="glyphicon glyphicon-bookmark "></span></a>
-                       <a data-toggle="modal" href="#{{x.job_title|cut:" " }}" class="button"><span class="glyphicon glyphicon-info-sign"></span> </a>
-                    </p>
-                 </div>
-              </div>
-           </div>
-           {% endfor %}
+        {% for x in opplist %}
+         <div class="col-lg-4 col-sm-6 text-center marginB">
+            <div class="hovereffect">
+               <img class="img-responsive" src="http://placehold.it/390x200" alt="">
+               <div class="overlay">
+                  <h2>{{x.opportunity_title}}</h2>
+                  <p class="icon-links">
+                  <a data-toggle="modal" href="#{{x.opportunity_title|cut:" " }}s" class="button"><span class="glyphicon glyphicon-bookmark"></span> </a>
+                  <a data-toggle="modal" href="#{{x.opportunity_title|cut:" " }}" class="button"><span class="glyphicon glyphicon-info-sign"></span> </a>
+                  </p>
+               </div>
+            </div>
+          </div>
+         {% endfor %}
        </div>
-       {% endif %}
+      {% endif %}
      </div>
      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </section>
 
-
-  <!-- Modal -->
-    {% for x in jlist %}
-      <div class="modal fade" id="{{x.job_title|cut:" " }}" role="dialog">
+  {% if opplist %}
+    {% for x in opplist %}
+      <div class="modal fade" id="{{x.opportunity_title|cut:" " }}" role="dialog">
         <div class="modal-dialog">
-           <!-- Modal content-->
-           <div class="modal-content">
-              <div class="modal-header">
-                 <button type="button" onclick="javascript:window.location.reload()" class="close" data-dismiss="modal">&times;</button>
-                 <h4>{{x.job_title}}<span class="glyphicon glyphicon-briefcase"></span></h4>
-              </div>
-              <div class="modal-body modalText">
-                 <ul style="list-style-type:none">
-                    <li>
-                       <h5> Opportunity Details <span class="glyphicon glyphicon-book"></span></h5>
-                       <ul style = "list-style-type:none">
-                          <li>{{x.job_text}}
-                          </li>
-                       </ul>
-                    </li>
-                    <li>
-                       <h5> Opportunity Requirements <span class="glyphicon glyphicon-exclamation-sign"></span></h5>
-                       <ul style = "list-style-type:none">
-                          <li>Job req
-                          </li>
-                       </ul>
-                    </li>
-                    <li>
-                       <h5> Hours Earned  <span class="glyphicon glyphicon-time"></span></h5>
-                       <ul style = "list-style-type:none">
-                          <li> {{x.job_hours}}</li>
-                       </ul>
-                    </li>
-                 </ul>
-              </div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" onclick="javascript:window.location.reload()" class="close" data-dismiss="modal">&times;</button>
+              <h4>{{x.opportunity_title}} <span class="glyphicon glyphicon-briefcase"></span></h4>
             </div>
-           </div>
-         </div>
-      {% endfor %}
+            <div class="modal-body modalText">
+             <ul style="list-style-type:none">
+                <li>
+                   <h5> Opportunity Details <span class="glyphicon glyphicon-book"></span></h5>
+                   <ul style = "list-style-type:none">
+                      <li>{{x.opportunity_details}}</li>
+                   </ul>
+                </li>
+                <li>
+                   <h5> Opportunity Requirements <span class="glyphicon glyphicon-exclamation-sign"></span></h5>
+                   <ul style = "list-style-type:none">
+                      <li>{{x.opportunity_requirements}}</li>
+                   </ul>
+                </li>
+                <li>
+                   <h5> Hours Earned  <span class="glyphicon glyphicon-time"></span></h5>
+                   <ul style = "list-style-type:none">
+                      <li> {{x.hours_earned}}</li>
+                   </ul>
+                </li>
+             </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="{{x.opportunity_title|cut:" " }}s" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" onclick="javascript:window.location.reload()" class="close" data-dismiss="modal">&times;</button>
+              <h4>Sign up <span class="glyphicon glyphicon-envelope"></span></h4>
+            </div>
+            <div class="modal-body modalText">
+              <form id="signup" action="{% url 'mande:signup' opp_id=x.opportunity_id %}" method="post">
+                  {% csrf_token %}
+                  {{form}}
+                  <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
        <script src="/static/home/js/jquery.js"></script>
        <script src="/static/home/js/bootstrap.min.js"></script>
        <script src="/static/home/js/jquery.easing.min.js"></script>
