@@ -8,6 +8,7 @@ class Opportunity(models.Model):
     opportunity_details = models.CharField(max_length=200)
     opportunity_requirements = models.CharField(max_length=200, default = "None")
     hours_earned = models.PositiveIntegerField(default=1)
+    email = models.EmailField(max_length=100)
     date = models.DateTimeField('date')
     pub_date = models.DateTimeField('date published', auto_now_add=True)
 

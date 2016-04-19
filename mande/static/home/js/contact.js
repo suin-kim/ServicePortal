@@ -17,6 +17,7 @@ $(function() {
             var email = $("input#email").val();
             var grade = $("input#grade").val();
             var detail = $("input#detail").val();
+            var reciever = $("input#reciever").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
@@ -29,7 +30,9 @@ $(function() {
                     name: name,
                     email: email,
                     grade:grade,
-                    message: message
+                    message: message,
+                    reciever: reciever
+
                 },
                 cache: false,
                 success: function() {
