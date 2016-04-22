@@ -35,7 +35,7 @@ $(function() {
 
                 },
                 cache: false,
-                success: function() {
+                /*success: function() {
                     // Success message
                     $('#success').html("<div class='alert alert-success'>");
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -46,7 +46,7 @@ $(function() {
                         .append('</div>');
 
                     //clear all fields
-                    $('#contactForm').trigger("reset");
+                    $('#signup').trigger("reset");
                 },
                 error: function() {
                     // Fail message
@@ -56,8 +56,8 @@ $(function() {
                     $('#success > .alert-danger').append("Sorry " + firstName + "Could you please email me directly to <a href='mailto:hawonp@gmail.com?Subject=Error from Service Portal;>hawonp@gmail.com</a> ? Sorry for the inconvenience!");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
-                    $('#contactForm').trigger("reset");
-                },
+                    $('#signup').trigger("reset");
+                },*/
             })
         },
         filter: function() {
