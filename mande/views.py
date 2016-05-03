@@ -11,14 +11,16 @@ def home(request):
     return render(request, 'mande/home.html', {'opplist': opportunity, 'form':form})
 
 def signup(request, opp_id):
-    opportunity = Opportunity.objects.get(pk=opp_id)
+    opportunity = Opportunity.objects.all()
+    select_opportunity = Opportunity.objects.get(pk=opp_id)
     form = VolunteerForm(request.POST or None)
     if form.is_valid():
         vol = form.save(commit=False)
-        vol.opportunity = opportunity
+        vol.opportunity = select_opportunity
         vol.save()
         #return HttpResponseRedirect('results')
-    return HttpResponseRedirect(reverse('mande:results', args=(opportunity.opportunity_id,)))
+    success = "You have successfully signed up!"
+    return render(request, 'mande/home.html', {'success': success, 'opplist': opportunity, 'form':form})
 
 def results(request, opportunity_id):
     opportunity = get_object_or_404(Opportunity, pk=opportunity_id)

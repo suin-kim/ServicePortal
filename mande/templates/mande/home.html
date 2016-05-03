@@ -61,6 +61,9 @@
         <h1 class="animated fadeInDown delay-07s">Service Hour Portal</h1>
         <ul class="we-create animated fadeInUp delay-1s">
         	<li>A free, responsive, service hour tracker.</li>
+          {%if success%}
+          <li>{{suc}}</li>
+          {%endif%}
         </ul>
         <a href="#opportunities" class="btn btn-circle page-scroll animated fadeInUp delay-1s">
           <i class="fa fa-angle-double-down animated"></i>
@@ -78,7 +81,11 @@
         {% for x in opplist %}
          <div class="col-lg-4 col-sm-6 text-center marginB">
             <div class="hovereffect">
-               <img class="img-responsive" src="http://placehold.it/390x200" alt="">
+                {% if x.image %}
+                    <img class="img-responsive" src="{{x.image}}" alt="">
+                {% else %}
+                    <img class="img-responsive" src="http://placehold.it/390x200" alt=""> 
+                {% endif %}
                <div class="overlay">
                   <h2>{{x.opportunity_title}}</h2>
                   <p class="icon-links">
@@ -151,7 +158,7 @@
     {% endfor %}
   {% endif %}
        <script src="/static/home/js/jquery.js"></script>
-       <script src="/static/home/js/contact_me.js"></script>
+       <script src="/static/home/js/contact.js"></script>
        <script src="/static/home/js/bootstrap.min.js"></script>
        <script src="/static/home/js/jquery.easing.min.js"></script>
        <script src="/static/home/js/grayscale.js"></script>

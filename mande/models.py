@@ -10,6 +10,7 @@ class Opportunity(models.Model):
     hours_earned = models.PositiveIntegerField(default=1)
     email = models.EmailField(max_length=100)
     date = models.DateTimeField('date')
+    image = models.ImageField(upload_to= '/static/mande/uploads/', blank=True)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
 
     class Meta:
