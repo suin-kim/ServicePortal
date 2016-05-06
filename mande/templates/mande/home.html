@@ -61,6 +61,7 @@
         <h1 class="animated fadeInDown delay-07s">Service Hour Portal</h1>
         <ul class="we-create animated fadeInUp delay-1s">
         	<li>A free, responsive, service hour tracker.</li>
+          <a data-toggle="modal"href="#Opportunity1">
           {%if success%}
           <li>{{suc}}</li>
           {%endif%}
@@ -81,18 +82,18 @@
         {% for x in opplist %}
          <div class="col-lg-4 col-sm-6 text-center marginB">
             <div class="hovereffect">
-                {% if x.image %}
-                    <img class="img-responsive" src="{{x.image}}" alt="">
-                {% else %}
-                    <img class="img-responsive" src="http://placehold.it/390x200" alt=""> 
-                {% endif %}
-               <div class="overlay">
-                  <h2>{{x.opportunity_title}}</h2>
-                  <p class="icon-links">
-                  <a data-toggle="modal" href="#{{x.opportunity_title|cut:" " }}s" class="button"><span class="glyphicon glyphicon-bookmark"></span> </a>
-                  <a data-toggle="modal" href="#{{x.opportunity_title|cut:" " }}" class="button"><span class="glyphicon glyphicon-info-sign"></span> </a>
-                  </p>
-               </div>
+                  {% if x.image %}
+                      <img class="img-responsive" src="{{x.image.url}}" alt="">
+                  {% else %}
+                      <img class="img-responsive" src="http://placehold.it/390x200" alt="">
+                  {% endif %}
+                 <div class="overlay">
+                    <h2>{{x.opportunity_title}}</h2>
+                    <p class="icon-links">
+                    <a data-toggle="modal" href="#{{x.opportunity_title|cut:" " }}s" class="button"><span class="glyphicon glyphicon-bookmark"></span> </a>
+                    <a data-toggle="modal" href="#{{x.opportunity_title|cut:" " }}" class="button"><span class="glyphicon glyphicon-info-sign"></span> </a>
+                    </p>
+                 </div>
             </div>
           </div>
          {% endfor %}

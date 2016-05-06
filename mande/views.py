@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .models import Opportunity, Volunteer
 from .forms import VolunteerForm
+from django.core.mail import send_mail
 
 def home(request):
     opportunity = Opportunity.objects.all()
@@ -17,11 +18,11 @@ def signup(request, opp_id):
     if form.is_valid():
         vol = form.save(commit=False)
         vol.opportunity = select_opportunity
+        #send_mail('test email', 'hello world', 'suinkm4@email.com', ['sikim@student.logoscambodia.org'])
         vol.save()
         #return HttpResponseRedirect('results')
-    success = "You have successfully signed up!"
-    return render(request, 'mande/home.html', {'success': success, 'opplist': opportunity, 'form':form})
+    return HttpResponseRedirect(reverse('mande:results', args=(opp_id)))
 
-def results(request, opportunity_id):
-    opportunity = get_object_or_404(Opportunity, pk=opportunity_id)
+def results(request, opp_id):
+    opportunity = get_object_or_404(Opportunity, pk=opp_id)
     return render(request, 'mande/results.html', {'opp' : opportunity})

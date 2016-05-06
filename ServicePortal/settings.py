@@ -14,8 +14,10 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-
+MEDIA_ROOT = PROJECT_ROOT + '/static/images/products/'
+MEDIA_URL = '/uploads/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -26,6 +28,12 @@ SECRET_KEY = '^o16u=&3xew=q44)1(te7o662@_4$yzou(i*!6+v95=c5d!smp'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 
 # Application definition

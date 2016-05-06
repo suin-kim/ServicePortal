@@ -1,1 +1,41 @@
-<p>You've successfully signed-up for {{opp.opportunity_id}}</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Logos Service Portal</title>
+    <link rel="shortcut icon" href="/static/home/favicon.ico" type="img/x-icon">
+
+    <link href="/static/home/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/static/home/css/metastyle.css" rel="stylesheet" type="text/css">
+    <link href="/static/home/css/animate.css" rel="stylesheet" type="text/css">
+
+    <link href="/static/home/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <section id="opportunities" class="content-section text-center">
+    <br><br><br><br><br><br><br>
+      <h1 class = "customheader">Thank you!</h1>
+      <h3> You have successfully signed up for </h3>
+      <h3>{{opp.opportunity_title}}</h3>
+      <a href="{% url 'mande:home' %}" class="btn btn-default btn-custom btn-lg" role="button">Click Here To Go Back To The Homepage</a>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </section>
+
+       <script src="/static/home/js/jquery.js"></script>
+       <script src="/static/home/js/bootstrap.min.js"></script>
+       <script src="js/jqBootstrapValidation.js"></script>
+       <script src="/static/home/js/contact.js"></script>
+       <script src="/static/home/js/jquery.easing.min.js"></script>
+       <script src="/static/home/js/grayscale.js"></script>
+
+   </body>
+</html>
