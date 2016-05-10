@@ -77,7 +77,21 @@
         {% for x in opplist %}
          <div class="col-lg-4 col-sm-6 text-center marginB">
             <div class="hovereffect">
-                      <img class="img-responsive" src="/static/home/img/holder.png" alt="">
+                {% if x.image = 1 %}
+                      <img class="img-responsive" src="/static/home/img/Babysitting.png" alt="">
+                {% elif x.image = 2 %}
+                      <img class="img-responsive" src="/static/home/img/Cleaning.png" alt="">
+                {% elif x.image = 3 %}
+                      <img class="img-responsive" src="/static/home/img/Commerce.png" alt="">
+                {% elif x.image = 4 %}
+                      <img class="img-responsive" src="/static/home/img/IT.png" alt="">
+                {% elif x.image = 5 %}
+                      <img class="img-responsive" src="/static/home/img/Tutoring.png" alt="">
+                {% elif x.image = 6 %}
+                      <img class="img-responsive" src="/static/home/img/Ushering.png" alt="">
+                {% else %}
+                      <img class="img-responsive" src="/static/home/img/MISC.png" alt="">        
+                {% endif %}
                  <div class="overlay">
                     <h2>{{x.opportunity_title}}</h2>
                     <p class="icon-links">

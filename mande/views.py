@@ -18,7 +18,7 @@ def signup(request, opp_id):
     if form.is_valid():
         vol = form.save(commit=False)
         vol.opportunity = select_opportunity
-        send_mail('test email', 'hello world', 'suinkm4@email.com', ['sikim@student.logoscambodia.org'])
+        send_mail('Potential Volunteer for '+select_opportunity.opportunity_title, 'Hello, \nThe Service Portal is pleased to inform you that '+ vol.volunteer_name +' has signed up for your service opportunity: '+select_opportunity.opportunity_title+'\nYou can contact '+ vol.volunteer_name +' at '+ vol.volunteer_email +'\nPlease let us know if there are any issues, \nMost sincerely, \nThe Service Portal', 'stuco@stuco.students.logoscambodia.org', [select_opportunity.email])
         vol.save()
         #return HttpResponseRedirect('results')
     return HttpResponseRedirect(reverse('mande:results', args=(opp_id)))

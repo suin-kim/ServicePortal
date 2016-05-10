@@ -3,8 +3,12 @@ from datetime import datetime
 
 TYPES = (
     (1,'Babysitting'),
-    (2,'IT'),
-    (3,'Ushering')
+    (2,'Cleaning'),
+    (3,'Commerce'),
+    (4,'IT'),
+    (5,'Tutoring'),
+    (6,'Ushering'),
+    (7,'MISC'),
 )
 class Opportunity(models.Model):
     opportunity_id = models.AutoField(primary_key=True)
