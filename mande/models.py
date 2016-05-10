@@ -10,7 +10,7 @@ class Opportunity(models.Model):
     opportunity_id = models.AutoField(primary_key=True)
     opportunity_title = models.CharField(max_length=20)
     opportunity_details = models.CharField(max_length=200)
-    image = models.IntegerField('Opportunity Type',max_length=1,choices=TYPES,default=1)
+    image = models.IntegerField('Opportunity Type',choices=TYPES,default=1)
     opportunity_requirements = models.CharField(max_length=200, default = "None")
     hours_earned = models.PositiveIntegerField(default=1)
     email = models.EmailField(max_length=100)

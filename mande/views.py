@@ -18,7 +18,7 @@ def signup(request, opp_id):
     if form.is_valid():
         vol = form.save(commit=False)
         vol.opportunity = select_opportunity
-        #send_mail('test email', 'hello world', 'suinkm4@email.com', ['sikim@student.logoscambodia.org'])
+        send_mail('test email', 'hello world', 'suinkm4@email.com', ['sikim@student.logoscambodia.org'])
         vol.save()
         #return HttpResponseRedirect('results')
     return HttpResponseRedirect(reverse('mande:results', args=(opp_id)))
