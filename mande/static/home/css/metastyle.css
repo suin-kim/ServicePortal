@@ -327,22 +327,18 @@ fieldset[disabled] .btn-custom.active {
 	height: 4.75em;
    background: rgb(0,0,0);
 	color: #3c4a50;
-	-webkit-transition: -webkit-transform 0.35s;
-	transition: transform 0.35s;
-	-webkit-transform: translate3d(0,100%,0);
-	transform: translate3d(0,100%,0);
 }
 
 .hovereffect img {
     display: block;
     position: relative;
-	-webkit-transition: -webkit-transform 0.35s;
-	transition: transform 0.35s;
+    background-color: white;
+    display: inline-block;
+
 }
 
 .hovereffect:hover img {
--webkit-transform: translate3d(0,-10%,0);
-	transform: translate3d(0,-10%,0);
+  opacity: .5;
 }
 
 .hovereffect h2 {
@@ -382,48 +378,12 @@ fieldset[disabled] .btn-custom.active {
 	color: #252d31;
 }
 
-.hovereffect h2,
-.hovereffect p.icon-links a {
-	-webkit-transition: -webkit-transform 0.35s;
-	transition: transform 0.35s;
-	-webkit-transform: translate3d(0,200%,0);
-	transform: translate3d(0,200%,0);
-}
-
 .hovereffect p.icon-links a span:before {
 	display: inline-block;
 	padding: 8px 10px;
 	speak: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-
-.hovereffect:hover .overlay,
-.hovereffect:hover h2,
-.hovereffect:hover p.icon-links a {
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-}
-
-.hovereffect:hover h2 {
-	-webkit-transition-delay: 0.05s;
-	transition-delay: 0.05s;
-}
-
-.hovereffect:hover p.icon-links a:nth-child(3) {
-	-webkit-transition-delay: 0.1s;
-	transition-delay: 0.1s;
-}
-
-.hovereffect:hover p.icon-links a:nth-child(2) {
-	-webkit-transition-delay: 0.15s;
-	transition-delay: 0.15s;
-}
-
-.hovereffect:hover p.icon-links a:first-child {
-	-webkit-transition-delay: 0.2s;
-	transition-delay: 0.2s;
 }
 
 .marginB {

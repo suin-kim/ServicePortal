@@ -61,10 +61,6 @@
         <h1 class="animated fadeInDown delay-07s">Service Hour Portal</h1>
         <ul class="we-create animated fadeInUp delay-1s">
         	<li>A free, responsive, service hour tracker.</li>
-          <a data-toggle="modal"href="#Opportunity1">
-          {%if success%}
-          <li>{{suc}}</li>
-          {%endif%}
         </ul>
         <a href="#opportunities" class="btn btn-circle page-scroll animated fadeInUp delay-1s">
           <i class="fa fa-angle-double-down animated"></i>
@@ -74,7 +70,6 @@
   </div>
 
   <section id="opportunities" class="content-section text-center">
-    <br><br><br><br><br><br><br>
     <h1>Available Opportunities</h1>
     <div class="container">
       {% if opplist %}
@@ -82,11 +77,7 @@
         {% for x in opplist %}
          <div class="col-lg-4 col-sm-6 text-center marginB">
             <div class="hovereffect">
-                  {% if x.image %}
-                      <img class="img-responsive" src="{{x.image.url}}" alt="">
-                  {% else %}
-                      <img class="img-responsive" src="http://placehold.it/390x200" alt="">
-                  {% endif %}
+                      <img class="img-responsive" src="/static/home/img/holder.png" alt="">
                  <div class="overlay">
                     <h2>{{x.opportunity_title}}</h2>
                     <p class="icon-links">
@@ -109,7 +100,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" onclick="javascript:window.location.reload()" class="close" data-dismiss="modal">&times;</button>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4>{{x.opportunity_title}} <span class="glyphicon glyphicon-briefcase"></span></h4>
             </div>
             <div class="modal-body modalText">
@@ -142,7 +133,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" onclick="javascript:window.location.reload()" class="close" data-dismiss="modal">&times;</button>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4>Sign up <span class="glyphicon glyphicon-envelope"></span></h4>
             </div>
             <div class="modal-body modalText">
